@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>누구의 새끼냥? — 개인정보처리방침</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    margin: 0 auto; padding: 2rem 1.25rem 4rem; max-width: 42rem;
+    font: 16px/1.75 -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    color: #24201d; background: #fbf8f4;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #ece7e1; background: #1a1715; }
+    a { color: #ffb877; }
+  }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.25rem; }
+  .sub { opacity: .7; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid rgba(128,128,128,.35); padding: .5rem .6rem; text-align: left; font-size: .95rem; vertical-align: top; }
+  code { background: rgba(128,128,128,.15); padding: .1rem .3rem; border-radius: .2rem; }
+  .box { border: 1px solid rgba(128,128,128,.35); border-radius: .5rem; padding: .9rem 1rem; margin: 1.25rem 0; }
+  footer { margin-top: 3rem; font-size: .9rem; opacity: .75; }
+</style>
+</head>
+<body>
+<h1>개인정보처리방침</h1>
+<p class="sub">누구의 새끼냥? (Whose Kitten?) · <a href="en.html">English</a> · <a href="delete.html">계정·데이터 삭제 요청</a></p>
+
+<h2>1. 이 게임이 모으는 것</h2>
+
+<p><strong>로그인하면 계정에 저장하고, 로그인하지 않으면 기기에만 저장합니다.</strong></p>
+
+<table>
+  <tr><th>항목</th><th>무엇</th><th>왜</th></tr>
+  <tr>
+    <td>계정 식별자</td>
+    <td>Google 계정(Google Play 게임즈)으로 로그인할 때 제공자가 내려 주는 고유 식별자</td>
+    <td>기기를 바꿔도 같은 사람의 저장을 찾기 위해</td>
+  </tr>
+  <tr>
+    <td>게임 진행</td>
+    <td>보유한 방울·보석, 보호소의 고양이와 사건 기록, 진행 일차</td>
+    <td>앱을 지웠다 다시 깔거나 기기를 바꿔도 이어서 하기 위해</td>
+  </tr>
+  <tr>
+    <td><strong>구매 내역</strong></td>
+    <td>어떤 상품을 언제 샀는지, 지급된 보석의 수량, 스토어가 발급한 구매 토큰(영수증 확인용)</td>
+    <td>결제가 실제로 일어났는지 확인하고, 산 것을 잃지 않게 하고, 문의가 오면 대조하기 위해</td>
+  </tr>
+  <tr>
+    <td>기기 정보</td>
+    <td>앱 버전, 운영체제 버전, 기기 종류, 기기 언어</td>
+    <td>오류를 찾고 어느 기기에서 문제가 생기는지 보기 위해</td>
+  </tr>
+</table>
+
+<p>이름·전화번호·주소·생년월일은 묻지 않습니다. 이메일 주소는 문의를 주실 때
+그 답을 보내는 데에만 씁니다. 사진첩·연락처·위치·마이크에 접근하지 않습니다.
+앨범 기능이 만드는 사진은 <strong>게임 화면을 잘라낸 이미지</strong>이고 기기 안
+앱 폴더에만 있습니다 — 서버로 보내지 않습니다.</p>
+
+<p class="box">로그인하지 않고 플레이하면 위 저장은 기기 안(<code>save.json</code>)에서만
+일어납니다. 그때는 앱을 지우면 진행도 함께 사라집니다.</p>
+
+<h2>2. 광고</h2>
+<p>이 게임은 <strong>Google AdMob</strong>으로 보상형 광고를 보여 줍니다. 플레이어가 버튼을
+눌렀을 때만 재생되며, 저절로 뜨는 전면 광고는 없습니다.</p>
+<p>광고를 내보내기 위해 Google이 기기 정보(광고 식별자, IP 주소, 기기 종류, 대략적인
+지역 등)를 처리할 수 있습니다. 자세한 내용은 Google의 정책을 따릅니다:
+<a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></p>
+<p><strong>이 게임은 전체 이용가이며, 아동이 이용할 수 있는 것을 전제로 설정합니다.</strong>
+그래서 Google Mobile Ads SDK에 다음을 켜서 요청합니다.</p>
+<ul>
+  <li>아동 대상 처리 (<code>tag_for_child_directed_treatment</code>)</li>
+  <li>동의 연령 미만 처리 (<code>tag_for_under_age_of_consent</code>)</li>
+  <li>광고 등급 상한 <code>G</code></li>
+</ul>
+<p>이 설정에서는 <strong>맞춤형(개인화) 광고가 나가지 않습니다.</strong> 광고 목적의 추적
+식별자도 사용하지 않습니다. iOS에서 앱 추적 투명성(ATT) 창을 띄우지 않는 이유도
+같습니다 — 추적을 하지 않으므로 물어볼 것이 없습니다.</p>
+<p>유럽 경제 지역(EEA)·영국에서는 Google의 사용자 메시징 플랫폼(UMP)을 통해 동의를
+처리합니다. 다만 위 "동의 연령 미만" 설정이 켜져 있으면 동의를 묻지 않고
+<strong>비개인화 광고만</strong> 나갑니다.</p>
+
+<h2>3. 이용 통계</h2>
+<p>어디에서 막히는지, 어떤 기능이 쓰이는지를 보기 위해 <strong>Google Analytics for
+Firebase</strong>로 게임 안의 사건(화면 진입, 사건 성공·실패, 광고 시청 등)을 기록합니다.
+여기에는 앱 버전·기기 종류·기기 언어와 앱 인스턴스 식별자가 함께 남습니다.
+<strong>이름이나 연락처처럼 사람을 가리키는 정보는 들어가지 않습니다.</strong></p>
+
+<h2>4. 결제</h2>
+<p>결제 자체는 각 스토어(Google Play · Apple App Store)가 처리합니다. 이 게임은
+카드번호를 포함한 결제 수단 정보를 보지도, 저장하지도 않습니다.</p>
+<p>스토어가 발급한 <strong>구매 토큰</strong>은 받습니다 — 그 토큰으로 스토어에
+"이 구매가 진짜인지"를 물어 확인한 뒤 보석을 지급하고, 무엇을 언제 샀는지를
+계정에 남깁니다. 이 기록이 있어야 기기를 바꿔도 산 것이 따라오고, 이중 지급과
+부정 결제를 막을 수 있습니다.</p>
+
+<h2>5. 제3자</h2>
+<table>
+  <tr><th>사업자</th><th>목적</th><th>정책</th></tr>
+  <tr><td>Google (Play 결제 · 게임즈 로그인)</td><td>결제 처리 · 계정 식별</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+  <tr><td>Google (AdMob)</td><td>광고 게재</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+  <tr><td>Google (Firebase)</td><td>이용 통계 · 게임 저장 서버</td><td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td></tr>
+  <tr><td>Apple</td><td>App Store 결제</td><td>Apple 스토어 정책</td></tr>
+</table>
+<p>이들 서비스의 서버는 대한민국 밖(미국 등)에 있을 수 있습니다. 즉 위에 적은
+항목이 <strong>국외에서 처리·보관될 수 있습니다.</strong> 목적과 항목은 위 표와 같고,
+보관 기간은 아래 7절과 같습니다.</p>
+
+<h2>6. 우리가 하지 않는 것</h2>
+<ul>
+  <li>개인정보를 팔지 않습니다.</li>
+  <li>광고 목적으로 플레이어를 식별해 추적하지 않습니다.</li>
+  <li>다른 앱·웹사이트에서의 활동을 가져다 붙이지 않습니다.</li>
+</ul>
+
+<h2>7. 보관과 삭제</h2>
+<ul>
+  <li><strong>계정과 게임 진행</strong>: 계정이 살아 있는 동안 보관합니다. 삭제를
+      요청하시면 지웁니다 — <a href="delete.html">계정·데이터 삭제 요청</a>.</li>
+  <li><strong>구매 기록</strong>: 대한민국 전자상거래법에 따라 대금 결제와 재화 공급에
+      관한 기록은 <strong>5년</strong>, 소비자 불만 또는 분쟁 처리에 관한 기록은
+      <strong>3년</strong> 보관합니다. 이 기간에는 삭제 요청이 있어도 해당 기록만은
+      남습니다.</li>
+  <li><strong>기기 안 저장</strong>: 앱을 지우면 함께 사라집니다.</li>
+  <li>기기의 광고 식별자는 운영체제 설정에서 초기화하거나 끌 수 있습니다 —
+      Android: 설정 → Google → 광고 / iOS: 설정 → 개인정보 보호 및 보안 → 추적</li>
+</ul>
+
+<h2>8. 아동</h2>
+<p>이 게임은 전체 이용가이고 아동도 이용할 수 있습니다. 아동에게서 이름·연락처
+같은 개인정보를 따로 수집하지 않으며, 위 1절에 적은 것 외의 정보를 아동에게
+묻지 않습니다. 아동의 정보 삭제도 7절과 같은 창구로 요청할 수 있습니다.</p>
+
+<h2>9. 문의</h2>
+<p>[연락처 이메일]</p>
+
+<footer>
+시행일: [시행일] · 이 방침이 바뀌면 이 페이지에 새 시행일과 함께 올립니다.
+</footer>
+</body>
+</html>
