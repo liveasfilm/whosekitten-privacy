@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>누구의 새끼냥? · Whose Kitten?</title>
+<meta name="description" content="새끼 고양이의 얼굴에서 부모를 읽어내는 고양이 보호소 게임 · A cozy cat shelter game built on real genetics.">
+<meta property="og:title" content="누구의 새끼냥? · Whose Kitten?">
+<meta property="og:image" content="img/en_01.webp">
+<link rel="icon" href="img/icon.png">
+<style>
+  :root {
+    --ink: #5b3726; --ink-soft: #8a5c44; --bg-top: #fff6e8; --bg-bot: #ffd6c4;
+    --card: #fffaf0; --pink: #ee687c; --pink-soft: #ffe6ea; --line: rgba(91,55,38,.18);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #f6e6da; --ink-soft: #d9bfae; --bg-top: #2a211d; --bg-bot: #3a2621;
+      --card: #33281f; --pink: #ff8a9b; --pink-soft: #4a2c30; --line: rgba(246,230,218,.18);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--ink);
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bot)) fixed;
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans",
+          "PingFang SC", "Noto Sans CJK KR", "Segoe UI", sans-serif;
+  }
+  main { max-width: 64rem; margin: 0 auto; padding: 1rem 16px 3rem; }
+  nav.langs { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: flex-end; }
+  nav.langs button {
+    font: inherit; font-size: .85rem; color: var(--ink-soft); background: transparent;
+    border: 1px solid var(--line); border-radius: 999px; padding: .2rem .7rem; cursor: pointer;
+  }
+  nav.langs button[aria-pressed="true"] { background: var(--pink); border-color: var(--pink); color: #fff; }
+  header.hero { display: grid; gap: 2rem; align-items: center; grid-template-columns: 1fr; margin-top: 1rem; }
+  @media (min-width: 52rem) { header.hero { grid-template-columns: 1.1fr .9fr; } }
+  .logo { width: min(100%, 26rem); height: auto; display: block; }
+  .tagline { font-size: 1.15rem; color: var(--ink-soft); margin: 1rem 0 1.25rem; max-width: 32rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0 0 1.5rem; list-style: none; }
+  .chips li { background: var(--card); border: 2px solid var(--pink); border-radius: 999px; padding: .2rem .9rem; font-weight: 700; font-size: .95rem; }
+  .stores { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .stores a {
+    display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; font-weight: 700;
+    background: var(--ink); color: var(--bg-top); border-radius: 14px; padding: .7rem 1.1rem;
+  }
+  .stores a:hover { filter: brightness(1.15); }
+  .stores svg { width: 1.3rem; height: 1.3rem; fill: currentColor; }
+  .free { font-size: .85rem; color: var(--ink-soft); margin-top: .6rem; }
+  video { width: min(100%, 22rem); aspect-ratio: 9 / 16; border-radius: 28px; display: block; margin: 0 auto;
+          background: #000; box-shadow: 0 18px 40px rgba(150,80,50,.25); border: 8px solid #fff; }
+  h2 { font-size: 1.4rem; margin: 3rem 0 1rem; }
+  .gallery { display: flex; gap: 1rem; overflow-x: auto; padding: .25rem .25rem 1rem; scroll-snap-type: x mandatory; }
+  .gallery figure { flex: 0 0 auto; width: min(68vw, 15rem); margin: 0; scroll-snap-align: start; }
+  .gallery img { width: 100%; height: auto; border-radius: 18px; display: block; box-shadow: 0 8px 22px rgba(150,80,50,.18); }
+  .gallery figcaption { font-size: .85rem; color: var(--ink-soft); margin-top: .4rem; }
+  .about { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 1.25rem 1.4rem; white-space: pre-line; }
+  footer { margin-top: 3rem; font-size: .9rem; color: var(--ink-soft); display: flex; flex-wrap: wrap; gap: 1rem; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" id="langs" aria-label="Language"></nav>
+  <header class="hero">
+    <div>
+      <img class="logo" id="logo" alt="" width="1000" height="704">
+      <p class="tagline" id="tagline"></p>
+      <ul class="chips" id="chips"></ul>
+      <div class="stores">
+        <a id="ios" href="https://apps.apple.com/app/id6811257450" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.3 1.2 9.7.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.6-1-2.6-3.8zM14 5.4c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg><span></span></a>
+        <a id="android" href="https://play.google.com/store/apps/details?id=com.liveasfilm.whosekitten" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3 13.5 12l-9.9 9.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1zm11 10.8 2.6 2.6-11.4 6.5 8.8-9.1zm3.7-3.7 2.9 1.7c.8.5.8 1.6 0 2.1l-2.9 1.7-2.9-2.9 2.9-2.6zM5.8 1.8l11.4 6.5-2.6 2.6-8.8-9.1z"/></svg><span></span></a>
+      </div>
+      <p class="free" id="free"></p>
+    </div>
+    <video src="teaser.mp4" poster="img/poster.webp" controls muted playsinline loop preload="metadata"></video>
+  </header>
+  <h2 id="shots-title"></h2>
+  <div class="gallery" id="gallery"></div>
+  <h2 id="about-title"></h2>
+  <div class="about" id="about"></div>
+  <footer>
+    <span>© 2026 Jegeon Jung</span>
+    <a id="privacy" href="../"></a>
+    <a id="delete" href="../delete.html"></a>
+    <a id="contact" href="mailto:liveasfilm@gmail.com"></a>
+  </footer>
+</main>
+<script>
+const DATA = {"ko": {"label": "한국어", "html": "ko", "name": "누구의 새끼냥?", "promo": "새끼 고양이의 얼굴에서 부모를 읽어내세요. 털색·귀·눈·꼬리에 숨은 유전 단서로 마을에서 진짜 엄마 아빠를 찾아 주는 힐링 추리 보호소 게임.", "chips": ["진짜 유전 추리", "가챠 없음", "힐링 보호소"], "ui": {"ios": "App Store에서 받기", "android": "Google Play에서 받기", "free": "무료 · 인앱 구매 있음", "privacy": "개인정보처리방침", "delete": "계정·데이터 삭제", "contact": "문의"}, "shots": "게임 화면", "cuts": ["문 앞에 놓인 아기 고양이 엄마 아빠를 찾아 주세요!", "얼굴이 곧 단서!", "마을 구석구석 탐색", "나만의 고양이 보호소", "신나는 놀이 시간", "세상에 하나뿐인 얼굴들", "추억은 앨범에"], "about": "보호소 문 앞에 새끼 고양이가 놓였다. 이름표도, 쪽지도 없다.\n남은 단서는 그 얼굴뿐이다 — 접힌 귀, 한쪽만 파란 눈, 발가락이 하나 더 있는 앞발.\n\n새끼의 얼굴에서 부모의 흔적을 읽어내고, 마을을 뒤져 진짜 부모를 찾아오는 고양이 보호소 게임입니다.", "privacy": ["../", "../delete.html"]}, "en": {"label": "English", "html": "en", "name": "Whose Kitten?", "promo": "Read a kitten's face and search the town for its real parents. A cozy cat shelter game built on real genetics.", "chips": ["Real genetics", "No gacha", "Cozy shelter"], "ui": {"ios": "Download on the App Store", "android": "Get it on Google Play", "free": "Free · In-app purchases", "privacy": "Privacy policy", "delete": "Delete account & data", "contact": "Contact"}, "shots": "Screenshots", "cuts": ["A kitten left at your door. Help find its mom and dad!", "Every face is a clue!", "Search the whole town", "Your own cat shelter", "Playtime!", "No two faces alike", "Keep every memory"], "about": "A kitten is left at your shelter door. No name tag, no note.\nThe only clue is the face — a folded ear, one blue eye, a paw with an extra toe.\n\nRead the parents in the kitten's face, then search the town to find them.", "privacy": ["../en.html", "../delete_en.html"]}, "ja": {"label": "日本語", "html": "ja", "name": "だれの子ねこ？", "promo": "子ねこの顔から両親を読み取ろう。毛色・耳・目・しっぽにかくれた遺伝の手がかりで、町じゅうから本当のママとパパを見つける、いやしの推理シェルターゲーム。", "chips": ["本物の遺伝で推理", "ガチャなし", "いやしのシェルター"], "ui": {"ios": "App Store でダウンロード", "android": "Google Play で手に入れよう", "free": "基本無料・アプリ内課金あり", "privacy": "プライバシーポリシー", "delete": "アカウント・データの削除", "contact": "お問い合わせ"}, "shots": "スクリーンショット", "cuts": ["玄関に置かれた子ねこ ママとパパをさがしてあげて！", "顔そのものが手がかり！", "町じゅうをさがそう", "わたしだけのシェルター", "たのしいあそびの時間", "世界にひとつだけの顔", "思い出はアルバムに"], "about": "シェルターの玄関に、子ねこが置かれていた。名札も、手紙もない。\n残された手がかりは、その顔だけ ― 折れた耳、片方だけ青い目、指が一本多い前足。\n\n子ねこの顔から両親の面影を読み取り、町をさがして本当の親を見つけ出す、ねこの保護シェルターゲームです。", "privacy": ["../en.html", "../delete_en.html"]}, "es": {"label": "Español", "html": "es", "name": "¿De quién es el gatito?", "promo": "Lee la cara de un gatito y recorre el pueblo para encontrar a sus verdaderos padres. Un acogedor juego de refugio de gatos basado en genética real.", "chips": ["Genética real", "Sin gacha", "Refugio acogedor"], "ui": {"ios": "Descargar en el App Store", "android": "Disponible en Google Play", "free": "Gratis · Compras dentro de la app", "privacy": "Política de privacidad", "delete": "Eliminar cuenta y datos", "contact": "Contacto"}, "shots": "Capturas", "cuts": ["Un gatito en tu puerta. ¡Ayúdale a encontrar a sus padres!", "¡Cada cara es una pista!", "Explora todo el pueblo", "Tu propio refugio", "¡Hora de jugar!", "No hay dos caras iguales", "Guarda cada recuerdo"], "about": "Alguien ha dejado un gatito en la puerta de tu refugio. Sin collar, sin nota.\nLa única pista es su cara: una oreja doblada, un ojo azul, una pata con un dedo de más.\n\nLee a los padres en la cara del gatito y recorre el pueblo para encontrarlos. Un juego de refugio de gatos basado en genética real.", "privacy": ["../en.html", "../delete_en.html"]}, "zh_Hans": {"label": "简体中文", "html": "zh-Hans", "name": "谁家的小猫咪？", "promo": "从小猫的脸上读出它的父母。靠藏在毛色、耳朵、眼睛和尾巴里的遗传线索，走遍小镇找到真正的爸爸妈妈——一款治愈系推理收容所游戏。", "chips": ["真实遗传推理", "没有抽卡", "治愈收容所"], "ui": {"ios": "在 App Store 下载", "android": "在 Google Play 下载", "free": "免费 · 含应用内购买", "privacy": "隐私政策", "delete": "删除账号与数据", "contact": "联系我们"}, "shots": "游戏画面", "cuts": ["门口来了一只小猫 帮它找到爸爸妈妈吧！", "脸就是线索！", "走遍整个小镇", "我的猫咪收容所", "快乐的游戏时间", "独一无二的脸", "回忆留在相册里"], "about": "收容所门口被放了一只小猫。没有名牌，也没有字条。\n唯一的线索就是它的脸——折起的耳朵、只有一只是蓝色的眼睛、多一根脚趾的前爪。\n\n从小猫的脸上读出父母的影子，走遍小镇找到它真正的爸爸妈妈。这是一款猫咪收容所游戏。", "privacy": ["../en.html", "../delete_en.html"]}, "zh_Hant": {"label": "繁體中文", "html": "zh-Hant", "name": "誰家的小貓咪？", "promo": "從小貓的臉上讀出牠的父母。靠藏在毛色、耳朵、眼睛和尾巴裡的遺傳線索，走遍小鎮找到真正的爸爸媽媽——一款療癒系推理收容所遊戲。", "chips": ["真實遺傳推理", "沒有抽卡", "療癒收容所"], "ui": {"ios": "在 App Store 下載", "android": "在 Google Play 下載", "free": "免費 · 含 App 內購買", "privacy": "隱私權政策", "delete": "刪除帳號與資料", "contact": "聯絡我們"}, "shots": "遊戲畫面", "cuts": ["門口來了一隻小貓 幫牠找到爸爸媽媽吧！", "臉就是線索！", "走遍整個小鎮", "我的貓咪收容所", "快樂的遊戲時間", "獨一無二的臉", "回憶留在相簿裡"], "about": "收容所門口被放了一隻小貓。沒有名牌，也沒有字條。\n唯一的線索就是牠的臉——摺起的耳朵、只有一隻是藍色的眼睛、多一根腳趾的前爪。\n\n從小貓的臉上讀出父母的影子，走遍小鎮找到牠真正的爸爸媽媽。這是一款貓咪收容所遊戲。", "privacy": ["../en.html", "../delete_en.html"]}};
+const ORDER = ["ko", "en", "ja", "es", "zh_Hans", "zh_Hant"];
+function pick() {
+  try {
+    const q = new URLSearchParams(location.search).get("lang");
+    if (q && DATA[q]) return q;
+  } catch (e) {}
+  for (const l of navigator.languages || [navigator.language || "en"]) {
+    const s = l.toLowerCase();
+    if (s.startsWith("zh")) return /(hant|tw|hk|mo)/.test(s) ? "zh_Hant" : "zh_Hans";
+    const b = s.split("-")[0];
+    if (DATA[b]) return b;
+  }
+  return "en";
+}
+function render(lang) {
+  const d = DATA[lang];
+  document.documentElement.lang = d.html;
+  document.title = d.name + " · Whose Kitten?";
+  const $ = id => document.getElementById(id);
+  $("logo").src = "img/logo_" + lang + ".webp"; $("logo").alt = d.name;
+  $("tagline").textContent = d.promo;
+  $("chips").replaceChildren(...d.chips.map(c => Object.assign(document.createElement("li"), {textContent: c})));
+  $("ios").querySelector("span").textContent = d.ui.ios;
+  $("android").querySelector("span").textContent = d.ui.android;
+  $("free").textContent = d.ui.free;
+  $("shots-title").textContent = d.shots;
+  $("about-title").textContent = d.name;
+  $("about").textContent = d.about;
+  $("gallery").replaceChildren(...d.cuts.map((c, i) => {
+    const f = document.createElement("figure");
+    const img = Object.assign(document.createElement("img"),
+      {src: "img/" + lang + "_" + String(i + 1).padStart(2, "0") + ".webp", alt: c, loading: "lazy", width: 540, height: 1200});
+    f.append(img, Object.assign(document.createElement("figcaption"), {textContent: c}));
+    return f;
+  }));
+  $("privacy").textContent = d.ui.privacy; $("privacy").href = d.privacy[0];
+  $("delete").textContent = d.ui.delete; $("delete").href = d.privacy[1];
+  $("contact").textContent = d.ui.contact;
+  for (const b of $("langs").children) b.setAttribute("aria-pressed", b.dataset.lang === lang);
+}
+document.getElementById("langs").replaceChildren(...ORDER.map(l => {
+  const b = Object.assign(document.createElement("button"), {textContent: DATA[l].label});
+  b.dataset.lang = l;
+  b.onclick = () => { render(l); try { history.replaceState(null, "", "?lang=" + l); } catch (e) {} };
+  return b;
+}));
+render(pick());
+</script>
+</body>
+</html>
