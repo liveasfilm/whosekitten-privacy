@@ -63,6 +63,13 @@ your photo library, contacts, location or microphone. Photos made by the album
 feature are captures of the game screen, kept in the app's own folder on your
 device — they are never uploaded.</p>
 
+<p>If you use <strong>album backup</strong>, those photos are packed into a single
+file. That file is <strong>created on your device, and you choose where it
+goes</strong> (your own cloud, such as iCloud Drive or Google Drive, or your device
+storage). <strong>It never goes to this game's servers.</strong> Once you have saved
+it, the file is yours — we cannot read it or delete it, so if you want it gone,
+delete it from that storage yourself.</p>
+
 <h3 style="font-size:1rem;margin-top:1.75rem">Signing in and consent</h3>
 <p>The game <strong>never signs you in on its own.</strong> When you tap
 <strong>[Settings] → [Save to my account]</strong> inside the game, we tell you what is stored,
@@ -85,19 +92,23 @@ you press the button — there are no pop-up interstitial ads.</p>
 <p>To serve ads, Google may process device information (advertising identifier, IP
 address, device type, approximate region). See
 <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>.</p>
-<p><strong>This game is rated for everyone and is configured on the assumption that
-children may play it.</strong> The Google Mobile Ads SDK is therefore requested with:</p>
+<p>This game is intended for players <strong>aged 13 and over</strong>. The Google Mobile Ads
+SDK is requested with:</p>
 <ul>
-  <li>child-directed treatment (<code>tag_for_child_directed_treatment</code>)</li>
-  <li>under the age of consent (<code>tag_for_under_age_of_consent</code>)</li>
-  <li>maximum ad content rating <code>G</code></li>
+  <li>child-directed treatment (<code>tag_for_child_directed_treatment</code>): off</li>
+  <li>under the age of consent (<code>tag_for_under_age_of_consent</code>): not specified</li>
+  <li>maximum ad content rating <code>T</code></li>
 </ul>
-<p>Under these settings <strong>no personalised ads are served</strong> and no advertising
-identifier is used for tracking. That is also why no App Tracking Transparency prompt is
-shown on iOS — there is no tracking to ask about.</p>
-<p>In the EEA and the UK, consent is handled through Google's User Messaging Platform
-(UMP). With the "under the age of consent" flag set, no consent form is shown and only
-non-personalised ads are served.</p>
+<p>On Android, <strong>Meta Audience Network</strong> may also serve ads through Google AdMob
+mediation. Meta may then process device information to serve those ads:
+<a href="https://www.facebook.com/privacy/policy">facebook.com/privacy/policy</a></p>
+<p>In regions where consent is required, such as the EEA and the UK, Google's User
+Messaging Platform (UMP) <strong>asks for your ad privacy consent first</strong>, and personalised
+or non-personalised ads are served according to your choice. You can change it at any time
+in the game under <strong>Settings → Ad privacy options</strong>. If consent cannot be
+confirmed, no ads are requested in that session.</p>
+<p>No App Tracking Transparency prompt is shown on iOS — the device's advertising
+identifier (IDFA) is not used to track you across other companies' apps and websites.</p>
 
 <h2>3. Usage analytics</h2>
 <p>To see where players get stuck and which features are used, the game records in-game
@@ -119,6 +130,7 @@ you to a new device, and what prevents double grants and fraudulent purchases.</
   <tr><th>Provider</th><th>Purpose</th><th>Policy</th></tr>
   <tr><td>Google (Play billing · Play Games sign-in)</td><td>Payments · account identity</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
   <tr><td>Google (AdMob)</td><td>Advertising</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+  <tr><td>Meta (Audience Network · Android)</td><td>Advertising (AdMob mediation)</td><td><a href="https://www.facebook.com/privacy/policy">facebook.com/privacy/policy</a></td></tr>
   <tr><td>Google (Firebase)</td><td>Usage analytics · save server</td><td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td></tr>
   <tr><td>Apple</td><td>App Store payments</td><td>Apple store policies</td></tr>
 </table>
@@ -137,6 +149,11 @@ purposes and items are as listed in this policy; retention is as described in se
 <ul>
   <li><strong>Account and game progress</strong>: kept while the account exists, and deleted
       on request — see <a href="delete_en.html">account &amp; data deletion</a>.</li>
+  <li><strong>Previous versions of game progress (backups)</strong>: when the progress on two
+      devices differs and you choose one, the progress that is replaced is kept separately for
+      up to <strong>30 days</strong> (at most five per account), so it can be restored if you
+      chose wrongly. It contains the same kind of data as "game progress" above. It is deleted
+      automatically after 30 days, and <strong>deleted together with the account.</strong></li>
   <li><strong>Purchase records</strong>: under Korean e-commerce law, records of payment and
       supply of goods are kept for <strong>5 years</strong> and records of consumer complaints
       or disputes for <strong>3 years</strong>. During those periods those records remain even
@@ -147,16 +164,17 @@ purposes and items are as listed in this policy; retention is as described in se
 </ul>
 
 <h2>8. Children</h2>
-<p>This game is rated for everyone and children may play it. We do not separately collect
-personal information such as a name or contact details from children, and we ask children
-for nothing beyond what section 1 describes. Deletion for a child's data can be requested
-through the same channel as section 7.</p>
+<p>This game is intended for players aged 13 and over. We do not separately collect
+personal information such as a name or contact details from children, and we ask for
+nothing beyond what section 1 describes. Players under 14 need a legal guardian's consent
+to switch on account storage. Deletion can be requested through the same channel as
+section 7.</p>
 
 <h2>9. Contact</h2>
 <p><a href="mailto:liveasfilm@gmail.com">liveasfilm@gmail.com</a></p>
 
 <footer>
-Effective date: <time datetime="2026-09-08">8 September 2026</time> · Changes to this policy are posted on this page with a new effective date.
+Effective date: <time datetime="2026-10-19">19 October 2026</time> · Changes to this policy are posted on this page with a new effective date.
 </footer>
 </body>
 </html>

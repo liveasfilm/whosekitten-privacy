@@ -62,6 +62,12 @@
 앨범 기능이 만드는 사진은 <strong>게임 화면을 잘라낸 이미지</strong>이고 기기 안
 앱 폴더에만 있습니다 — 서버로 보내지 않습니다.</p>
 
+<p><strong>앨범 백업</strong>을 쓰시면 사진이 파일 하나로 묶입니다. 그 파일은
+<strong>기기에서 만들어지고, 어디에 둘지는 이용자가 고릅니다</strong>(iCloud
+Drive·Google Drive 같은 본인의 클라우드나 기기 저장소). <strong>이 게임의 서버로는
+가지 않습니다.</strong> 저장한 뒤의 파일은 이용자의 것이므로 우리는 열어 볼 수도,
+지울 수도 없습니다 — 지우실 때는 그 저장소에서 직접 지우시면 됩니다.</p>
+
 <h3 style="font-size:1rem;margin-top:1.75rem">로그인과 동의</h3>
 <p>이 게임은 <strong>저절로 로그인하지 않습니다.</strong> 게임 안에서
 <strong>[설정] → [계정에 저장하기]</strong> 를 누르실 때, 무엇을 어떤 목적으로 얼마나
@@ -84,19 +90,22 @@
 <p>광고를 내보내기 위해 Google이 기기 정보(광고 식별자, IP 주소, 기기 종류, 대략적인
 지역 등)를 처리할 수 있습니다. 자세한 내용은 Google의 정책을 따릅니다:
 <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a></p>
-<p><strong>이 게임은 전체 이용가이며, 아동이 이용할 수 있는 것을 전제로 설정합니다.</strong>
-그래서 Google Mobile Ads SDK에 다음을 켜서 요청합니다.</p>
+<p>이 게임의 대상 연령층은 <strong>만 13세 이상</strong>입니다. Google Mobile Ads SDK에는
+다음과 같이 요청합니다.</p>
 <ul>
-  <li>아동 대상 처리 (<code>tag_for_child_directed_treatment</code>)</li>
-  <li>동의 연령 미만 처리 (<code>tag_for_under_age_of_consent</code>)</li>
-  <li>광고 등급 상한 <code>G</code></li>
+  <li>아동 대상 처리 (<code>tag_for_child_directed_treatment</code>): 하지 않음</li>
+  <li>동의 연령 미만 처리 (<code>tag_for_under_age_of_consent</code>): 지정하지 않음</li>
+  <li>광고 등급 상한 <code>T</code></li>
 </ul>
-<p>이 설정에서는 <strong>맞춤형(개인화) 광고가 나가지 않습니다.</strong> 광고 목적의 추적
-식별자도 사용하지 않습니다. iOS에서 앱 추적 투명성(ATT) 창을 띄우지 않는 이유도
-같습니다 — 추적을 하지 않으므로 물어볼 것이 없습니다.</p>
-<p>유럽 경제 지역(EEA)·영국에서는 Google의 사용자 메시징 플랫폼(UMP)을 통해 동의를
-처리합니다. 다만 위 "동의 연령 미만" 설정이 켜져 있으면 동의를 묻지 않고
-<strong>비개인화 광고만</strong> 나갑니다.</p>
+<p>Android에서는 Google AdMob 미디에이션을 통해 <strong>Meta Audience Network</strong>도
+광고를 낼 수 있습니다. 이때 Meta가 광고를 내보내기 위해 기기 정보를 처리할 수 있습니다:
+<a href="https://www.facebook.com/privacy/policy">facebook.com/privacy/policy</a></p>
+<p>유럽 경제 지역(EEA)·영국 등 동의가 필요한 지역에서는 Google의 사용자 메시징
+플랫폼(UMP)으로 <strong>광고 개인정보 동의를 먼저 묻고</strong>, 동의 상태에 따라 맞춤형 또는
+비맞춤형 광고가 나갑니다. 동의 여부는 게임 안 <strong>설정 → 광고 개인정보 옵션</strong>에서
+언제든 바꿀 수 있습니다. 동의를 확인하지 못한 실행에서는 광고를 요청하지 않습니다.</p>
+<p>iOS에서는 앱 추적 투명성(ATT) 창을 띄우지 않습니다 — 다른 회사의 앱·웹사이트를
+넘나드는 추적에 기기의 광고 식별자(IDFA)를 쓰지 않습니다.</p>
 
 <h2>3. 이용 통계</h2>
 <p>어디에서 막히는지, 어떤 기능이 쓰이는지를 보기 위해 <strong>Google Analytics for
@@ -117,6 +126,7 @@ Firebase</strong>로 게임 안의 사건(화면 진입, 사건 성공·실패, 
   <tr><th>사업자</th><th>목적</th><th>정책</th></tr>
   <tr><td>Google (Play 결제 · 게임즈 로그인)</td><td>결제 처리 · 계정 식별</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
   <tr><td>Google (AdMob)</td><td>광고 게재</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+  <tr><td>Meta (Audience Network · Android)</td><td>광고 게재(AdMob 미디에이션)</td><td><a href="https://www.facebook.com/privacy/policy">facebook.com/privacy/policy</a></td></tr>
   <tr><td>Google (Firebase)</td><td>이용 통계 · 게임 저장 서버</td><td><a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a></td></tr>
   <tr><td>Apple</td><td>App Store 결제</td><td>Apple 스토어 정책</td></tr>
 </table>
@@ -135,6 +145,11 @@ Firebase</strong>로 게임 안의 사건(화면 진입, 사건 성공·실패, 
 <ul>
   <li><strong>계정과 게임 진행</strong>: 계정이 살아 있는 동안 보관합니다. 삭제를
       요청하시면 지웁니다 — <a href="delete.html">계정·데이터 삭제 요청</a>.</li>
+  <li><strong>게임 진행의 이전 판(사본)</strong>: 두 기기의 진행이 어긋나 한쪽을
+      고르실 때, 바뀌는 쪽의 진행을 최대 <strong>30일</strong> 동안 따로
+      보관합니다(계정당 다섯 개까지). 잘못 고르신 경우에 되돌려 드리기 위한
+      것이고, 담기는 내용은 위 "게임 진행"과 같습니다. 30일이 지나면 자동으로
+      지워지고, <strong>계정을 지우면 함께 지워집니다.</strong></li>
   <li><strong>구매 기록</strong>: 대한민국 전자상거래법에 따라 대금 결제와 재화 공급에
       관한 기록은 <strong>5년</strong>, 소비자 불만 또는 분쟁 처리에 관한 기록은
       <strong>3년</strong> 보관합니다. 이 기간에는 삭제 요청이 있어도 해당 기록만은
@@ -145,15 +160,16 @@ Firebase</strong>로 게임 안의 사건(화면 진입, 사건 성공·실패, 
 </ul>
 
 <h2>8. 아동</h2>
-<p>이 게임은 전체 이용가이고 아동도 이용할 수 있습니다. 아동에게서 이름·연락처
-같은 개인정보를 따로 수집하지 않으며, 위 1절에 적은 것 외의 정보를 아동에게
-묻지 않습니다. 아동의 정보 삭제도 7절과 같은 창구로 요청할 수 있습니다.</p>
+<p>이 게임의 대상 연령층은 만 13세 이상입니다. 아동에게서 이름·연락처 같은
+개인정보를 따로 수집하지 않으며, 위 1절에 적은 것 외의 정보를 묻지 않습니다. 만 14세
+미만은 계정 저장을 켜려면 법정대리인의 동의가 필요합니다. 정보 삭제는 7절과 같은
+창구로 요청할 수 있습니다.</p>
 
 <h2>9. 문의</h2>
 <p><a href="mailto:liveasfilm@gmail.com">liveasfilm@gmail.com</a></p>
 
 <footer>
-시행일: <time datetime="2026-09-08">2026년 9월 8일</time> · 이 방침이 바뀌면 이 페이지에 새 시행일과 함께 올립니다.
+시행일: <time datetime="2026-10-19">2026년 10월 19일</time> · 이 방침이 바뀌면 이 페이지에 새 시행일과 함께 올립니다.
 </footer>
 </body>
 </html>
